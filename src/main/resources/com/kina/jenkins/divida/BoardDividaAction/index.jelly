@@ -1,0 +1,25 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+	<l:layout title="Divida">
+    <l:main-panel>
+       	<h1>Divida</h1>
+		<div>
+        	<table class="pane sortable" style="width:50%">	
+        		<tr>
+        			<td class="pane-header" align="left,center">Devedor</td>
+        			<td class="pane-header" initialSortDir="up" align="left" width="10%">Quantidade Total</td>
+        			<td class="pane-header" initialSortDir="up" align="left" width="10%">Quantidade Paga</td>
+        			<td class="pane-header" initialSortDir="up" align="left" width="10%">Restante</td>
+        		</tr>
+          		<j:forEach var="userDivida" items="${it.userDividas}">
+    	      		<tr>
+        				<td><a href="${rootURL}/${userDivida.user.url}">${userDivida.user}</a></td>
+        				<td>${userDivida.divida}</td>
+        				<td>${userDivida.pago}</td>
+        				<td>${userDivida.totalDivida}</td>
+        			</tr> 
+          		</j:forEach>
+        	</table>
+      	</div>
+	</l:main-panel>
+  	</l:layout>
+</j:jelly>
